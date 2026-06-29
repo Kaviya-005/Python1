@@ -1,0 +1,22 @@
+1NF (First Normal Form) :
+The schema satisfies 1NF because every column stores only atomic (single) values.
+For example, the email column stores only one email address per student.
+A violation of 1NF would occur if multiple phone numbers were stored in a single column like '9876543210,9123456789'. Instead, each phone number should be stored separately or in another related table.
+EXAMPLE :
+Every cell should contain only one value.
+Correct:
+phone_number = 9876543210
+Wrong:
+phone_number = 9876543210,9123456789
+This stores multiple values in one column, violating 1NF.
+
+
+
+2NF (Second Normal Form) :
+The schema satisfies 2NF because every non-key column depends entirely on the primary key. In the enrollments table, although (student_id, course_id) can be considered a composite candidate key, attributes like enrollment_date and grade depend on the complete enrollment record, not just student_id or course_id alone.
+
+
+
+3NF (Third Normal Form) :
+The schema satisfies 3NF because there are no transitive dependencies.
+For example, the students table stores only department_id and does not store dept_name. If dept_name were stored in the students table, it would depend on department_id instead of student_id, causing a transitive dependency and violating 3NF.
